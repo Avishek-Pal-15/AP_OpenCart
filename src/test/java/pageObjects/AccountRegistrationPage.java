@@ -21,6 +21,7 @@ public class AccountRegistrationPage extends BasePage  {
 //	By.xpath("//input[@value='0']");
 //	By.xpath("//input[@name='agree']");
 //	By.xpath("//input[@value='Continue']");
+	// dummy
 	
 
 
