@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends BasePage {
 	
 		// WebDriver driver; getting from parent class BasePage
-		// dummy
 		
 		public HomePage(WebDriver driver) {
 			super(driver);

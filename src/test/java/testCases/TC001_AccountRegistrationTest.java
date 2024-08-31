@@ -15,9 +15,7 @@ import testBase.TestBase;
 public class TC001_AccountRegistrationTest extends TestBase {
 		
 		// WebDriver driver;  getting from parent class TestBase
-	// dummy
-		
-		
+			
 		@Test
 		void verifyRegistration() { 
 			
