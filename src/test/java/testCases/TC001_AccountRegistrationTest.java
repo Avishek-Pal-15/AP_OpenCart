@@ -41,7 +41,7 @@ public class TC001_AccountRegistrationTest extends TestBase {
 				waitUntilPageLoad(driver, 5);
 		        
 				String confMsg = arp.getConfMsg(); 
-				//System.out.println(confMsg);
+				System.out.println(confMsg);
 				
 				if(confMsg.contains("successfully created")) {
 					Assert.assertTrue(true);
