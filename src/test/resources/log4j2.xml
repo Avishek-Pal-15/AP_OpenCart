@@ -5,7 +5,7 @@
     <Property name="basePath">./logs</Property>
   </Properties>
   
- <!--The appender writes the log messages to a destination such as a file or database. 
+ <!--The appender writes the log messages to a destination such as a file or database or console. 
  <The logger and level define the granularity of log messages that are written to the log file.><!-->
   
   <Appenders>

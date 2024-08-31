@@ -1,11 +1,14 @@
 package testBase;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 import java.util.Random;
 
 import org.apache.log4j.BasicConfigurator;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -20,12 +23,18 @@ public class TestBase {
 
 	public WebDriver driver;
 	public Logger logger;
+	public Properties prop;
 	
 	@BeforeClass
 	@Parameters({"os", "browser"})
-	public void setup(String os, String browser) { 
+	public void setup(String os, String browser) throws IOException { 
 		BasicConfigurator.configure();
 		logger = LogManager.getLogger(this.getClass());
+		
+		// Loading config.properties file
+		FileReader file = new FileReader("./src//test//resources//config.properties");
+		prop = new Properties(); 
+		prop.load(file);
 		
 		switch(browser.toLowerCase()) {
 		case "chrome": 
@@ -43,7 +52,8 @@ public class TestBase {
 		}
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://tutorialsninja.com/demo/");
+		driver.get(prop.getProperty("appURL"));
+		//driver.get("https://tutorialsninja.com/demo/");
 		driver.manage().window().maximize();
 	}
 	
