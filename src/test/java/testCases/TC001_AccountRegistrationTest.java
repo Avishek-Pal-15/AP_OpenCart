@@ -13,7 +13,7 @@ public class TC001_AccountRegistrationTest extends TestBase {
 		
 		// WebDriver driver;  getting from parent class TestBase
 			
-		@Test
+		@Test(groups={"Regression", "Master"})
 		void verifyRegistration() { 
 			
 			try {
