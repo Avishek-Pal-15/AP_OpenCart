@@ -51,6 +51,9 @@ public class AccountRegistrationPage extends BasePage  {
 	@FindBy(xpath="//input[@value='Continue']") 
 	WebElement submit;
 	
+	@FindBy(xpath="//h1/following-sibling::p") 
+	WebElement confMsg;
+	
 	public void setFN(String input) {
 		fn.sendKeys(input);
 	}
@@ -85,6 +88,10 @@ public class AccountRegistrationPage extends BasePage  {
 	
 	public void submit() {
 		submit.click();
+	}
+	
+	public String getConfMsg() { 
+		return confMsg.getText();
 	}
 	
 	
