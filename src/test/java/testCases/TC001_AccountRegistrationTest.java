@@ -1,9 +1,7 @@
 package testCases;
 
-import java.time.Duration;
+import java.io.FileOutputStream;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,10 +27,13 @@ public class TC001_AccountRegistrationTest extends TestBase {
 				
 				arp.setFN("Avi");
 				arp.setLN("Anu");
-				arp.setEmail(generateRandomString(5, 10) + "@gmail.com");
+				String email = generateRandomString(5, 10) + "@gmail.com";
+				arp.setEmail(email);
+				prop.setProperty("email", email);
+				prop.store(new FileOutputStream("./src//test//resources//config.properties"), null);
 				arp.setPH("1234567891");
-				arp.setPwd("abcd1234");
-				arp.setConfirm("abcd1234");
+				arp.setPwd(prop.getProperty("password"));
+				arp.setConfirm(prop.getProperty("password"));
 				arp.selectRadio();
 				arp.agreeCheckbox();
 				arp.submit();
