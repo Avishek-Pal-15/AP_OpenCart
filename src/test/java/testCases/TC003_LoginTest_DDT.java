@@ -11,7 +11,7 @@ import utilities.DataProviders;
 
 public class TC003_LoginTest_DDT extends TestBase {
 
-	@Test(dataProvider = "excelData", dataProviderClass = DataProviders.class)
+	@Test(dataProvider = "excelData", dataProviderClass = DataProviders.class, groups="DataDriver")
 	public void verifyLogin_DDT(String email, String password, String expectedResult) {
 		
 		logger.info("************ Starting TC003 *************");

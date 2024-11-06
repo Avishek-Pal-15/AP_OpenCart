@@ -25,7 +25,7 @@ public class TestBase {
 	public Logger logger;
 	public Properties prop;
 	
-	@BeforeClass
+	@BeforeClass(groups={"Sanity", "Regression", "Master", "DataDriven"})
 	@Parameters({"os", "browser"})
 	public void setup(String os, String browser) throws IOException { 
 		BasicConfigurator.configure();
@@ -57,7 +57,7 @@ public class TestBase {
 		driver.manage().window().maximize();
 	}
 	
-	@AfterClass
+	@AfterClass(groups={"Sanity", "Regression", "Master", "DataDriven"})
 	public void tearDown() { 
 		driver.quit();
 	}
